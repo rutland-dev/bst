@@ -27,3 +27,5 @@ prettyPrint(tree.root);
 prettyPrint(tree.root = tree.insert(14, tree.root));
 
 prettyPrint(tree.root = tree.delete(12, tree.root));
+
+console.log(tree.find(14, tree.root));

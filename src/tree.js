@@ -79,4 +79,17 @@ export default class Tree {
         parent = null;
         return root;
     }
+
+    find(value, root) {
+        if (value === root.data) return root;
+
+        if (value < root.data) {
+            return this.find(value, root.left);
+        }
+        if (value > root.data) {
+            return this.find(value, root.right);
+        }
+
+        return null;
+    }
 }
