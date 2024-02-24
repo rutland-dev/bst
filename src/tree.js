@@ -20,4 +20,20 @@ export default class Tree {
 
         return root;
     }
+
+    insert(value, root) {
+        if (root == null) return;
+
+        if (value <= root.data) {
+            if (root.left != null) {
+                this.insert(value, root.left);
+            } else {
+                root.left = new Node(value);
+            }
+        } else if (root.right != null) {
+            this.insert(value, root.right);
+        } else {
+            root.right = new Node(value);
+        }
+    }
 }
