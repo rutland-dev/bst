@@ -6,7 +6,7 @@ module.exports = {
     index: "./src/index.js",
     node: "./src/node.js",
     tree: "./src/tree.js",
-    buildTree: "./src/build-tree.js",
+    mergeSort: "./src/merge-sort.js",
   },
   output: {
     filename: "[name].bundle.js",
