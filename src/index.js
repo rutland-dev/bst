@@ -24,6 +24,6 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
 
 prettyPrint(tree.root);
 
-tree.insert(14, tree.root);
+prettyPrint(tree.root = tree.insert(14, tree.root));
 
-prettyPrint(tree.root);
+

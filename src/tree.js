@@ -22,18 +22,24 @@ export default class Tree {
     }
 
     insert(value, root) {
-        if (root == null) return;
+        if (root == null) return new Node(value);
 
-        if (value <= root.data) {
-            if (root.left != null) {
-                this.insert(value, root.left);
-            } else {
-                root.left = new Node(value);
-            }
-        } else if (root.right != null) {
-            this.insert(value, root.right);
+        if (value < root.data) {
+            root.left = this.insert(value, root.left);
         } else {
-            root.right = new Node(value);
+            root.right = this.insert(value, root.right);
+        }
+
+        return root;
+    }
+
+    delete(value, root) {
+        if (root == null) return value;
+
+        if (value === root) {
+            if (root.left == null && root.right == null) {
+                root = null;
+            }
         }
     }
 }
