@@ -34,12 +34,49 @@ export default class Tree {
     }
 
     delete(value, root) {
-        if (root == null) return value;
-
-        if (value === root) {
-            if (root.left == null && root.right == null) {
-                root = null;
-            }
+        if (root == null) {
+            return root;
         }
+
+        if (value < root.data) {
+            root.left = this.delete(value, root.left);
+            return root;
+        }
+
+        if (value > root.data) {
+            root.right = this.delete(value, root.right);
+            return root;
+        }
+
+        if (root.left == null) {
+            const temp = root.right;
+            root = null;
+            return temp
+        }
+
+        if (root.right == null) {
+            const temp = root.left;
+            root = null;
+            return temp;
+        }
+
+        let parent = root;
+
+        let child = root.right;
+        while (child.left != null) {
+            parent = child;
+            child = child.left;
+        }
+
+        if (parent !== root) {
+            parent.left = child.right;
+        } else {
+            parent.right = child.right;
+        }
+
+        root.data = child.data;
+
+        parent = null;
+        return root;
     }
 }

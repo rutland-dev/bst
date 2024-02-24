@@ -26,4 +26,4 @@ prettyPrint(tree.root);
 
 prettyPrint(tree.root = tree.insert(14, tree.root));
 
-
+prettyPrint(tree.root = tree.delete(12, tree.root));
