@@ -115,4 +115,64 @@ export default class Tree {
             return outputArray;
         }
     }
+
+    inOrder(callback, root, outputArray = []) {
+        if (root == null) return root;
+
+        if (root.left != null) {
+            this.inOrder(callback, root.left, outputArray);
+        }
+
+        if (typeof(callback) === "function" && callback()) {
+            return root.data + callback();
+        }
+        
+        outputArray.push(root.data);
+
+        if (root.right != null) {
+            this.inOrder(callback, root.right, outputArray);
+        }
+
+        return outputArray;
+    }
+
+    preOrder(callback, root, outputArray = []) {
+        if (root == null) return root;
+
+        if (typeof(callback) === "function" && callback()) {
+            return root.data + callback();
+        }
+        
+        outputArray.push(root.data);
+
+        if (root.left != null) {
+            this.preOrder(callback, root.left, outputArray);
+        }
+
+        if (root.right != null) {
+            this.preOrder(callback, root.right, outputArray);
+        }
+
+        return outputArray;
+    }
+
+    postOrder(callback, root, outputArray = []) {
+        if (root == null) return root;
+
+        if (root.left != null) {
+            this.postOrder(callback, root.left, outputArray);
+        }
+
+        if (root.right != null) {
+            this.postOrder(callback, root.right, outputArray);
+        }
+
+        if (typeof(callback) === "function" && callback()) {
+            return root.data + callback();
+        }
+        
+        outputArray.push(root.data);
+
+        return outputArray;
+    }
 }

@@ -32,6 +32,18 @@ console.log(tree.find(14, tree.root));
 
 const contextPrint = () => 1;
 
-tree.levelOrder(null, tree.root);
+console.log(tree.levelOrder(null, tree.root));
 
-console.log(tree.levelOrder(contextPrint, tree.root));
+// console.log(tree.levelOrder(contextPrint, tree.root));
+
+console.log(tree.inOrder(null, tree.root));
+
+// console.log(tree.inOrder(contextPrint, tree.root));
+
+console.log(tree.preOrder(null, tree.root));
+
+// console.log(tree.preOrder(contextPrint, tree.root));
+
+console.log(tree.postOrder(null, tree.root));
+
+// console.log(tree.postOrder(contextPrint, tree.root));
