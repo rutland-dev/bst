@@ -175,4 +175,30 @@ export default class Tree {
 
         return outputArray;
     }
+
+    height(node) {
+        if (node == null) return 0;
+        let leftCounter = 0;
+        let rightCounter = 0;
+        let leftNode = node.left;
+        let rightNode = node.right;
+
+        while (leftNode != null) {
+            leftCounter += 1;
+            leftNode = leftNode.left;
+        }
+
+        while (rightNode != null) {
+            rightCounter += 1;
+            rightNode = rightNode.right;
+        }
+
+        if (leftCounter >= rightCounter) {
+            return leftCounter;
+        }
+        
+        return rightCounter;
+
+    }
+
 }

@@ -47,3 +47,5 @@ console.log(tree.preOrder(null, tree.root));
 console.log(tree.postOrder(null, tree.root));
 
 // console.log(tree.postOrder(contextPrint, tree.root));
+
+console.log(tree.height(tree.find(16, tree.root)));
