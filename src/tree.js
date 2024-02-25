@@ -6,6 +6,7 @@ export default class Tree {
         // Sort array and remove duplicates
         this.sortedArray = MergeSort(array);
         this.root = this.buildTree(this.sortedArray, 0, this.sortedArray.length - 1);
+        this.level = null;
     }
 
     buildTree(array, start, end) {
@@ -82,6 +83,8 @@ export default class Tree {
 
     find(value, root) {
         if (value === root.data) return root;
+
+        this.level += 1;
 
         if (value < root.data) {
             return this.find(value, root.left);
@@ -177,7 +180,7 @@ export default class Tree {
     }
 
     height(node) {
-        if (node == null) return 0;
+        if (node == null) return node;
         let leftCounter = 0;
         let rightCounter = 0;
         let leftNode = node.left;
@@ -199,6 +202,12 @@ export default class Tree {
         
         return rightCounter;
 
+    }
+
+    depth(node) {
+        this.level = 0;
+        this.find(node.data, this.root);
+        return this.level;
     }
 
 }
