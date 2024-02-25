@@ -29,3 +29,9 @@ prettyPrint(tree.root = tree.insert(14, tree.root));
 prettyPrint(tree.root = tree.delete(12, tree.root));
 
 console.log(tree.find(14, tree.root));
+
+const contextPrint = () => 1;
+
+tree.levelOrder(null, tree.root);
+
+console.log(tree.levelOrder(contextPrint, tree.root));

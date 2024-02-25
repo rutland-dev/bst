@@ -92,4 +92,27 @@ export default class Tree {
 
         return null;
     }
+
+    levelOrder(callback, root, queue = [], outputArray = []) {
+        if (root == null) return root;
+
+        if (root.left != null) {
+            queue.push(root.left);
+        }
+
+        if (root.right != null) {
+            queue.push(root.right);
+        }
+
+        if (typeof(callback) === "function" && callback()) {
+            console.log(root.data + callback());
+            if (queue.length) {
+                return this.levelOrder(callback, queue.shift(), queue);
+            }
+        } else {
+            outputArray.push(root.data);
+            this.levelOrder(callback, queue.shift(), queue, outputArray);
+            return outputArray;
+        }
+    }
 }
