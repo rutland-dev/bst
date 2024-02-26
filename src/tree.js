@@ -210,4 +210,41 @@ export default class Tree {
         return this.level;
     }
 
+    isBalanced() {
+        const node = this.root;
+        if (node == null) return node;
+        let leftCounter = 0;
+        let rightCounter = 0;
+        let leftNode = node.left;
+        let rightNode = node.right;
+
+        while (leftNode != null) {
+            leftCounter += 1;
+            leftNode = leftNode.left;
+        }
+
+        while (rightNode != null) {
+            rightCounter += 1;
+            rightNode = rightNode.right;
+        }
+
+        if (leftCounter === rightCounter) return true;
+
+        let difference;
+
+        if (leftCounter > rightCounter) {
+            difference = leftCounter - rightCounter;
+        } else {
+            difference = rightCounter - leftCounter;
+        }
+
+        if (difference > 1) return false;
+
+        return true;
+    }
+
+    rebalance() {
+        return new Tree(this.inOrder(null, this.root));
+    }
+
 }
